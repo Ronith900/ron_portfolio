@@ -1,497 +1,566 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ronith's Portfolio</title>
-  <style>
-    :root {
-      --bg-main: #f4f7fa;
-      --bg-section: #e8edf3;
-      --text-main: #181a1b;
-      --text-accent: #0077cc;
-      --border-section: #d1d5db;
-      --about-gradient: linear-gradient(120deg, #e0e7ef 60%, #38bdf8 100%);
-      --skills-gradient: linear-gradient(120deg, #c7d2fe 60%, #38bdf8 100%);
-      --skills-accent: #0077cc;
-      --footer-text: #888;
-      --black: #101010;
-    }
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: var(--bg-main);
-      color: var(--text-main);
-      transition: background 0.3s, color 0.3s;
-    }
-    .dark-mode {
-      --bg-main: #16181d;
-      --bg-section: #23262b;
-      --text-main: #e0e7ef;
-      --text-accent: #38bdf8;
-      --border-section: #2a2d33;
-      --about-gradient: linear-gradient(120deg, #23262b 60%, #2563eb 100%);
-      --skills-gradient: linear-gradient(120deg, #23262b 60%, #2563eb 100%);
-      --skills-accent: #38bdf8;
-      --footer-text: #b3b3b3;
-      --black: #000;
-    }
-    .abstract-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 220px;
-      z-index: 0;
-      overflow: hidden;
-      pointer-events: none;
-    }
-    .abstract-svg {
-      width: 100vw;
-      height: 220px;
-      display: block;
-    }
-    header {
-      position: relative;
-      z-index: 1;
-      background: none;
-      color: var(--text-main);
-      padding: 2rem 1rem 1rem 1rem;
-      text-align: center;
-      border-bottom: 1px solid #eee;
-    }
-    .dark-mode header {
-      border-bottom: none;
-    }
-    .profile-pic, .greeting, .resume-btn, header p {
-      position: relative;
-      z-index: 2;
-    }
-    .profile-pic {
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 2px solid #e0e0e0;
-      margin: 0 auto 1rem auto;
-      display: block;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      background: #f5f5f5;
-    }
-    main {
-      max-width: 700px;
-      margin: 0 auto;
-      background: var(--bg-section);
-      border-radius: 14px;
-      box-shadow: 0 2px 16px rgba(16,16,16,0.06);
-      padding: 2rem;
-      margin-top: 2.5rem;
-    }
-    h1 {
-      font-size: 2.2rem;
-      font-weight: 600;
-      margin: 0.5rem 0 0.2rem 0;
-      letter-spacing: 0.5px;
-    }
-    h2 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #0077cc;
-      margin-top: 0;
-      margin-bottom: 1.2rem;
-      letter-spacing: 0.3px;
-    }
-    section {
-      margin-bottom: 2.5rem;
-      padding: 2rem 1.5rem;
-      background: #f8fafc;
-      border: 1px solid #e5e7eb;
-      border-radius: 14px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.03);
-      scroll-margin-top: 100px;
-      transition: box-shadow 0.2s;
-    }
-    section:not(:last-child) {
-      margin-bottom: 2.5rem;
-    }
-    section:hover {
-      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
-    }
-    ul {
-      padding-left: 1.2rem;
-    }
-    .project, .work {
-      margin-bottom: 1rem;
-    }
-    .contact a {
-      color: #0077cc;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .contact a:hover {
-      text-decoration: underline;
-    }
-    @media (max-width: 600px) {
-      main {
-        padding: 1rem;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ronith's Portfolio</title>
+    <style>
+      :root {
+        --bg-main: #f4f7fa;
+        --bg-section: #e8edf3;
+        --text-main: #181a1b;
+        --text-accent: #0077cc;
+        --border-section: #d1d5db;
+        --about-gradient: linear-gradient(120deg, #e0e7ef 60%, #38bdf8 100%);
+        --skills-gradient: linear-gradient(120deg, #c7d2fe 60%, #38bdf8 100%);
+        --skills-accent: #0077cc;
+        --footer-text: #888;
+        --black: #101010;
+      }
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: var(--bg-main);
+        color: var(--text-main);
+        transition: background 0.3s, color 0.3s;
+      }
+      .dark-mode {
+        --bg-main: #16181d;
+        --bg-section: #23262b;
+        --text-main: #e0e7ef;
+        --text-accent: #38bdf8;
+        --border-section: #2a2d33;
+        --about-gradient: linear-gradient(120deg, #23262b 60%, #2563eb 100%);
+        --skills-gradient: linear-gradient(120deg, #23262b 60%, #2563eb 100%);
+        --skills-accent: #38bdf8;
+        --footer-text: #b3b3b3;
+        --black: #000;
+      }
+      .abstract-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 220px;
+        z-index: 0;
+        overflow: hidden;
+        pointer-events: none;
+      }
+      .abstract-svg {
+        width: 100vw;
+        height: 220px;
+        display: block;
+      }
+      header {
+        position: relative;
+        z-index: 1;
+        background: none;
+        color: var(--text-main);
+        padding: 2rem 1rem 1rem 1rem;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+      }
+      .dark-mode header {
+        border-bottom: none;
+      }
+      .profile-pic,
+      .greeting,
+      .resume-btn,
+      header p {
+        position: relative;
+        z-index: 2;
       }
       .profile-pic {
-        width: 90px;
-        height: 90px;
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 2px solid #e0e0e0;
+        margin: 0 auto 1rem auto;
+        display: block;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        background: #f5f5f5;
       }
-    }
-    /* Modal styles */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.7);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-      transition: opacity 0.2s;
-    }
-    .modal-overlay.active {
-      display: flex;
-    }
-    .modal-img {
-      max-width: 90vw;
-      max-height: 80vh;
-      border-radius: 16px;
-      box-shadow: 0 4px 32px rgba(0,0,0,0.18);
-      background: #fff;
-      padding: 0.5rem;
-      animation: popIn 0.2s;
-    }
-    @keyframes popIn {
-      from { transform: scale(0.8); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-    .greeting {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin: 1rem 0 0.5rem 0;
-      letter-spacing: 1px;
-      background: linear-gradient(90deg, #0077cc 30%, #38bdf8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
-      animation: fadeInUp 1s cubic-bezier(.23,1.01,.32,1) 0.1s both;
-      text-align: center;
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .role-download {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.7rem;
-      margin-top: 0.5rem;
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: #222;
-    }
-    .resume-btn {
-      position: relative;
-      display: inline-block;
-      background: #0077cc;
-      border-radius: 6px;
-      min-width: 40px;
-      height: 36px;
-      margin: 0;
-      padding: 0 1.2rem;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      color: #fff;
-      font-weight: bold;
-      font-size: 1.1rem;
-      letter-spacing: 0.5px;
-      text-decoration: none;
-      line-height: 36px;
-      text-align: center;
-      transition: background 0.2s, box-shadow 0.2s;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
-    .resume-btn:hover {
-      background: #005fa3;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-    }
-    .nav-links {
-      margin-top: 1.5rem;
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-    }
-    .nav-link {
-      color: #0077cc;
-      font-weight: 500;
-      text-decoration: none;
-      font-size: 1.1rem;
-      transition: color 0.2s;
-      position: relative;
-    }
-    .nav-link:hover {
-      color: #005fa3;
-    }
-    .section-btn {
-      display: inline-block;
-      margin-top: 1.2rem;
-      padding: 0.5rem 1.2rem;
-      background: #0077cc;
-      color: #fff;
-      border-radius: 5px;
-      font-weight: 500;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: background 0.2s;
-    }
-    .section-btn:hover {
-      background: #005fa3;
-    }
-    .footer {
-      width: 100%;
-      text-align: center;
-      padding: 1.2rem 0 1.5rem 0;
-      color: var(--footer-text);
-      font-size: 1rem;
-      background: none;
-      letter-spacing: 0.2px;
-    }
-    .about-standout {
-      background: var(--about-gradient);
-      border-left: 6px solid var(--text-accent);
-      border-radius: 18px;
-      box-shadow: 0 4px 24px rgba(56,189,248,0.10);
-      padding: 2.5rem 2rem;
-      margin-bottom: 2.5rem;
-      position: relative;
-      z-index: 1;
-    }
-    .about-standout h2 {
-      color: var(--text-accent);
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin-bottom: 1.2rem;
-    }
-    .about-standout p {
-      font-size: 1.15rem;
-      color: var(--text-main);
-      font-weight: 500;
-      line-height: 1.7;
-    }
-    .skills-standout {
-      background: var(--skills-gradient);
-      border-right: 6px solid var(--skills-accent);
-      border-radius: 18px;
-      box-shadow: 0 4px 24px rgba(56,189,248,0.10);
-      padding: 2.5rem 2rem 2.8rem 2rem;
-      margin-bottom: 2.5rem;
-      position: relative;
-      z-index: 1;
-    }
-    .skills-standout h2 {
-      color: var(--skills-accent);
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin-bottom: 1.2rem;
-    }
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.1rem 1.7rem;
-      list-style: none;
-      padding: 0;
-      margin: 0 0 2.2rem 0;
-      font-size: 1.13rem;
-      font-weight: 500;
-      color: var(--text-main);
-    }
-    .skills-list li {
-      background: #fff;
-      border-radius: 8px;
-      padding: 0.5rem 1.1rem;
-      box-shadow: 0 1px 6px rgba(16,16,16,0.04);
-      border: 1px solid var(--border-section);
-      color: var(--black);
-      transition: box-shadow 0.2s, border 0.2s;
-    }
-    .skills-list li:hover {
-      box-shadow: 0 2px 12px rgba(56,189,248,0.13);
-      border: 1px solid var(--skills-accent);
-    }
-    .dark-mode .skills-list li {
-      background: #23262b;
-      color: #e0e7ef;
-    }
-    .resume-cta {
-      display: flex;
-      justify-content: center;
-      margin-top: 1.5rem;
-    }
-    .resume-card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 16px rgba(16,16,16,0.08);
-      padding: 1.2rem 2.2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      border: 1.5px solid var(--border-section);
-    }
-    .resume-title {
-      font-size: 1.08rem;
-      color: var(--skills-accent);
-      font-weight: 600;
-      margin-bottom: 0.7rem;
-      letter-spacing: 0.2px;
-    }
-    .resume-btn-cta {
-      display: inline-block;
-      background: linear-gradient(90deg, #0077cc 40%, #38bdf8 100%);
-      color: #fff;
-      font-weight: bold;
-      font-size: 1.08rem;
-      padding: 0.7rem 1.6rem;
-      border-radius: 6px;
-      text-decoration: none;
-      box-shadow: 0 2px 8px rgba(56,189,248,0.10);
-      transition: background 0.2s, box-shadow 0.2s;
-      letter-spacing: 0.2px;
-    }
-    .resume-btn-cta:hover {
-      background: linear-gradient(90deg, #38bdf8 40%, #0077cc 100%);
-      box-shadow: 0 4px 16px rgba(56,189,248,0.16);
-    }
-    .dark-mode .resume-card {
-      background: #23262b;
-    }
-    .theme-toggle {
-      position: fixed;
-      top: 24px;
-      right: 32px;
-      z-index: 100;
-      background: var(--bg-section);
-      border: 1.5px solid var(--border-section);
-      border-radius: 50%;
-      width: 44px;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      color: var(--text-accent);
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      transition: background 0.2s, color 0.2s, border 0.2s;
-    }
-    .theme-toggle:hover {
-      background: var(--bg-main);
-      color: var(--skills-accent);
-      border: 1.5px solid var(--skills-accent);
-    }
-  </style>
-</head>
-<body>
-  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-    <span id="theme-icon">🌙</span>
-  </button>
-  <header>
-    <div class="abstract-bg">
-      <svg width="100%" height="220" viewBox="0 0 800 220" fill="none" xmlns="http://www.w3.org/2000/svg" class="abstract-svg">
-        <ellipse cx="200" cy="120" rx="180" ry="60" fill="#e0f2fe" fill-opacity="0.7"/>
-        <ellipse cx="600" cy="80" rx="140" ry="50" fill="#c7d2fe" fill-opacity="0.6"/>
-        <ellipse cx="400" cy="180" rx="220" ry="40" fill="#38bdf8" fill-opacity="0.3"/>
-      </svg>
-    </div>
-    <img src="ron.jpg" alt="Ronith's photo" class="profile-pic" id="profilePic">
-    <h1 class="greeting">Hi there, I'm Ronith</h1>
-  </header>
-  <main>
-    <section class="about-standout">
-      <h2>About Me</h2>
-      <p>Hi! I'm Ronith, a software developer passionate about automation, security, and building impactful solutions. I love turning ideas into reality with clean code and creative problem-solving.</p>
-    </section>
-    <section class="skills-standout">
-      <h2>Skills</h2>
-      <ul class="skills-list">
-        <li>Python</li>
-        <li>JavaScript</li>
-        <li>AWS</li>
-        <li>Django</li>
-        <li>React</li>
-        <li>Automation</li>
-      </ul>
-    </section>
-    <div class="resume-cta">
-      <div class="resume-card">
-        <span class="resume-title">Want to know more?</span>
-        <a href="Ronith Resume 25.pdf" download class="resume-btn-cta">Download My Resume</a>
+      main {
+        max-width: 700px;
+        margin: 0 auto;
+        background: var(--bg-section);
+        border-radius: 14px;
+        box-shadow: 0 2px 16px rgba(16, 16, 16, 0.06);
+        padding: 2rem;
+        margin-top: 2.5rem;
+      }
+      h1 {
+        font-size: 2.2rem;
+        font-weight: 600;
+        margin: 0.5rem 0 0.2rem 0;
+        letter-spacing: 0.5px;
+      }
+      h2 {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #0077cc;
+        margin-top: 0;
+        margin-bottom: 1.2rem;
+        letter-spacing: 0.3px;
+      }
+      section {
+        margin-bottom: 2.5rem;
+        padding: 2rem 1.5rem;
+        background: #f8fafc;
+        border: 1px solid #e5e7eb;
+        border-radius: 14px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+        scroll-margin-top: 100px;
+        transition: box-shadow 0.2s;
+      }
+      section:not(:last-child) {
+        margin-bottom: 2.5rem;
+      }
+      section:hover {
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+      }
+      ul {
+        padding-left: 1.2rem;
+      }
+      .project,
+      .work {
+        margin-bottom: 1rem;
+      }
+      .contact a {
+        color: #0077cc;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .contact a:hover {
+        text-decoration: underline;
+      }
+      @media (max-width: 600px) {
+        main {
+          padding: 1rem;
+        }
+        .profile-pic {
+          width: 90px;
+          height: 90px;
+        }
+      }
+      /* Modal styles */
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 0.2s;
+      }
+      .modal-overlay.active {
+        display: flex;
+      }
+      .modal-img {
+        max-width: 90vw;
+        max-height: 80vh;
+        border-radius: 16px;
+        box-shadow: 0 4px 32px rgba(0, 0, 0, 0.18);
+        background: #fff;
+        padding: 0.5rem;
+        animation: popIn 0.2s;
+      }
+      @keyframes popIn {
+        from {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      .greeting {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin: 1rem 0 0.5rem 0;
+        letter-spacing: 1px;
+        background: linear-gradient(90deg, #0077cc 30%, #38bdf8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+        animation: fadeInUp 1s cubic-bezier(0.23, 1.01, 0.32, 1) 0.1s both;
+        text-align: center;
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .role-download {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.7rem;
+        margin-top: 0.5rem;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #222;
+      }
+      .resume-btn {
+        position: relative;
+        display: inline-block;
+        background: #0077cc;
+        border-radius: 6px;
+        min-width: 40px;
+        height: 36px;
+        margin: 0;
+        padding: 0 1.2rem;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        color: #fff;
+        font-weight: bold;
+        font-size: 1.1rem;
+        letter-spacing: 0.5px;
+        text-decoration: none;
+        line-height: 36px;
+        text-align: center;
+        transition: background 0.2s, box-shadow 0.2s;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+      .resume-btn:hover {
+        background: #005fa3;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+      }
+      .nav-links {
+        margin-top: 1.5rem;
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+      }
+      .nav-link {
+        color: #0077cc;
+        font-weight: 500;
+        text-decoration: none;
+        font-size: 1.1rem;
+        transition: color 0.2s;
+        position: relative;
+      }
+      .nav-link:hover {
+        color: #005fa3;
+      }
+      .section-btn {
+        display: inline-block;
+        margin-top: 1.2rem;
+        padding: 0.5rem 1.2rem;
+        background: #0077cc;
+        color: #fff;
+        border-radius: 5px;
+        font-weight: 500;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: background 0.2s;
+      }
+      .section-btn:hover {
+        background: #005fa3;
+      }
+      .footer {
+        width: 100%;
+        text-align: center;
+        padding: 1.2rem 0 1.5rem 0;
+        color: var(--footer-text);
+        font-size: 1rem;
+        background: none;
+        letter-spacing: 0.2px;
+      }
+      .about-standout {
+        background: var(--about-gradient);
+        border-left: 6px solid var(--text-accent);
+        border-radius: 18px;
+        box-shadow: 0 4px 24px rgba(56, 189, 248, 0.1);
+        padding: 2.5rem 2rem;
+        margin-bottom: 2.5rem;
+        position: relative;
+        z-index: 1;
+      }
+      .about-standout h2 {
+        color: var(--text-accent);
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-bottom: 1.2rem;
+      }
+      .about-standout p {
+        font-size: 1.15rem;
+        color: var(--text-main);
+        font-weight: 500;
+        line-height: 1.7;
+      }
+      .skills-standout {
+        background: var(--skills-gradient);
+        border-right: 6px solid var(--skills-accent);
+        border-radius: 18px;
+        box-shadow: 0 4px 24px rgba(56, 189, 248, 0.1);
+        padding: 2.5rem 2rem 2.8rem 2rem;
+        margin-bottom: 2.5rem;
+        position: relative;
+        z-index: 1;
+      }
+      .skills-standout h2 {
+        color: var(--skills-accent);
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-bottom: 1.2rem;
+      }
+      .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.1rem 1.7rem;
+        list-style: none;
+        padding: 0;
+        margin: 0 0 2.2rem 0;
+        font-size: 1.13rem;
+        font-weight: 500;
+        color: var(--text-main);
+      }
+      .skills-list li {
+        background: #fff;
+        border-radius: 8px;
+        padding: 0.5rem 1.1rem;
+        box-shadow: 0 1px 6px rgba(16, 16, 16, 0.04);
+        border: 1px solid var(--border-section);
+        color: var(--black);
+        transition: box-shadow 0.2s, border 0.2s;
+      }
+      .skills-list li:hover {
+        box-shadow: 0 2px 12px rgba(56, 189, 248, 0.13);
+        border: 1px solid var(--skills-accent);
+      }
+      .dark-mode .skills-list li {
+        background: #23262b;
+        color: #e0e7ef;
+      }
+      .resume-cta {
+        display: flex;
+        justify-content: center;
+        margin-top: 1.5rem;
+      }
+      .resume-card {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 16px rgba(16, 16, 16, 0.08);
+        padding: 1.2rem 2.2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1.5px solid var(--border-section);
+      }
+      .resume-title {
+        font-size: 1.08rem;
+        color: var(--skills-accent);
+        font-weight: 600;
+        margin-bottom: 0.7rem;
+        letter-spacing: 0.2px;
+      }
+      .resume-btn-cta {
+        display: inline-block;
+        background: linear-gradient(90deg, #0077cc 40%, #38bdf8 100%);
+        color: #fff;
+        font-weight: bold;
+        font-size: 1.08rem;
+        padding: 0.7rem 1.6rem;
+        border-radius: 6px;
+        text-decoration: none;
+        box-shadow: 0 2px 8px rgba(56, 189, 248, 0.1);
+        transition: background 0.2s, box-shadow 0.2s;
+        letter-spacing: 0.2px;
+      }
+      .resume-btn-cta:hover {
+        background: linear-gradient(90deg, #38bdf8 40%, #0077cc 100%);
+        box-shadow: 0 4px 16px rgba(56, 189, 248, 0.16);
+      }
+      .dark-mode .resume-card {
+        background: #23262b;
+      }
+      .theme-toggle {
+        position: fixed;
+        top: 24px;
+        right: 32px;
+        z-index: 100;
+        background: var(--bg-section);
+        border: 1.5px solid var(--border-section);
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: var(--text-accent);
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        transition: background 0.2s, color 0.2s, border 0.2s;
+      }
+      .theme-toggle:hover {
+        background: var(--bg-main);
+        color: var(--skills-accent);
+        border: 1.5px solid var(--skills-accent);
+      }
+    </style>
+  </head>
+  <body>
+    <button
+      id="theme-toggle"
+      class="theme-toggle"
+      aria-label="Toggle dark mode"
+    >
+      <span id="theme-icon">🌙</span>
+    </button>
+    <header>
+      <div class="abstract-bg">
+        <svg
+          width="100%"
+          height="220"
+          viewBox="0 0 800 220"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="abstract-svg"
+        >
+          <ellipse
+            cx="200"
+            cy="120"
+            rx="180"
+            ry="60"
+            fill="#e0f2fe"
+            fill-opacity="0.7"
+          />
+          <ellipse
+            cx="600"
+            cy="80"
+            rx="140"
+            ry="50"
+            fill="#c7d2fe"
+            fill-opacity="0.6"
+          />
+          <ellipse
+            cx="400"
+            cy="180"
+            rx="220"
+            ry="40"
+            fill="#38bdf8"
+            fill-opacity="0.3"
+          />
+        </svg>
       </div>
+      <img
+        src="ron.jpg"
+        alt="Ronith's photo"
+        class="profile-pic"
+        id="profilePic"
+      />
+      <h1 class="greeting">Hi there, I'm Ronith</h1>
+    </header>
+    <main>
+      <section class="about-standout">
+        <h2>About Me</h2>
+        <p>
+          Hi! I'm Ronith, a software developer passionate about automation,
+          security, and building impactful solutions. I love turning ideas into
+          reality with clean code and creative problem-solving.
+        </p>
+      </section>
+      <section class="skills-standout">
+        <h2>Skills</h2>
+        <ul class="skills-list">
+          <li>Python</li>
+          <li>JavaScript</li>
+          <li>AWS</li>
+          <li>Django</li>
+          <li>React</li>
+          <li>Automation</li>
+        </ul>
+      </section>
+      <div class="resume-cta">
+        <div class="resume-card">
+          <span class="resume-title">Want to know more?</span>
+          <a href="resume.pdf" download class="resume-btn-cta"
+            >Download My Resume</a
+          >
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div>
+        &copy; 2025 Ronith.Made with ❤️ and HTML/CSS.<br />
+        <span style="color: #0077cc; font-weight: 500"
+          >Email:
+          <a
+            href="mailto:ronith900@gmail.com"
+            style="color: #0077cc; text-decoration: none"
+            >ronith900@gmail.com</a
+          ></span
+        >
+      </div>
+    </footer>
+    <div class="modal-overlay" id="modalOverlay">
+      <img src="ron.jpg" alt="Ronith's photo large" class="modal-img" />
     </div>
-  </main>
-  <footer class="footer">
-    <div>
-      &copy; 2025 Ronith.Made with ❤️ and HTML/CSS.<br>
-      <span style="color:#0077cc;font-weight:500;">Email: <a href="mailto:ronith900@gmail.com" style="color:#0077cc;text-decoration:none;">ronith900@gmail.com</a></span>
-    </div>
-  </footer>
-  <div class="modal-overlay" id="modalOverlay">
-    <img src="ron.jpg" alt="Ronith's photo large" class="modal-img">
-  </div>
-  <script>
-    const profilePic = document.getElementById('profilePic');
-    const modalOverlay = document.getElementById('modalOverlay');
-    profilePic.addEventListener('click', () => {
-      modalOverlay.classList.add('active');
-    });
-    modalOverlay.addEventListener('click', (e) => {
-      if (e.target === modalOverlay) {
-        modalOverlay.classList.remove('active');
-      }
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        modalOverlay.classList.remove('active');
-      }
-    });
-    // Smooth scroll for nav links and section buttons
-    document.querySelectorAll('a.nav-link, .section-btn').forEach(link => {
-      link.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if (href.startsWith('#')) {
-          e.preventDefault();
-          document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+    <script>
+      const profilePic = document.getElementById("profilePic");
+      const modalOverlay = document.getElementById("modalOverlay");
+      profilePic.addEventListener("click", () => {
+        modalOverlay.classList.add("active");
+      });
+      modalOverlay.addEventListener("click", (e) => {
+        if (e.target === modalOverlay) {
+          modalOverlay.classList.remove("active");
         }
       });
-    });
-    // Theme toggle logic
-    const themeToggle = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon');
-    function setTheme(dark) {
-      if (dark) {
-        document.body.classList.add('dark-mode');
-        themeIcon.textContent = '☀️';
-        localStorage.setItem('theme', 'dark');
-      } else {
-        document.body.classList.remove('dark-mode');
-        themeIcon.textContent = '🌙';
-        localStorage.setItem('theme', 'light');
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          modalOverlay.classList.remove("active");
+        }
+      });
+      // Smooth scroll for nav links and section buttons
+      document.querySelectorAll("a.nav-link, .section-btn").forEach((link) => {
+        link.addEventListener("click", function (e) {
+          const href = this.getAttribute("href");
+          if (href.startsWith("#")) {
+            e.preventDefault();
+            document.querySelector(href).scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      });
+      // Theme toggle logic
+      const themeToggle = document.getElementById("theme-toggle");
+      const themeIcon = document.getElementById("theme-icon");
+      function setTheme(dark) {
+        if (dark) {
+          document.body.classList.add("dark-mode");
+          themeIcon.textContent = "☀️";
+          localStorage.setItem("theme", "dark");
+        } else {
+          document.body.classList.remove("dark-mode");
+          themeIcon.textContent = "🌙";
+          localStorage.setItem("theme", "light");
+        }
       }
-    }
-    themeToggle.addEventListener('click', () => {
-      setTheme(!document.body.classList.contains('dark-mode'));
-    });
-    // On load, set theme from localStorage
-    (function() {
-      const saved = localStorage.getItem('theme');
-      if (saved === 'dark') setTheme(true);
-      else setTheme(false);
-    })();
-  </script>
-</body>
-</html> 
+      themeToggle.addEventListener("click", () => {
+        setTheme(!document.body.classList.contains("dark-mode"));
+      });
+      // On load, set theme from localStorage
+      (function () {
+        const saved = localStorage.getItem("theme");
+        if (saved === "dark") setTheme(true);
+        else setTheme(false);
+      })();
+    </script>
+  </body>
+</html>
